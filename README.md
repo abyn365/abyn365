@@ -2,8 +2,6 @@
 
 ### A passionate NextJS/Typescript developer
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=abyn365&label=Profile views&color=0e75b6&style=flat" alt="abyn365" /> </p>
-
 - 📫 How to reach me **abyn@abyn.xyz**
 
 - ⚡ Fun fact **: meow**
