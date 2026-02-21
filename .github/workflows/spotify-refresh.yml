@@ -1,0 +1,30 @@
+name: Refresh Spotify Now Playing
+
+on:
+  schedule:
+    - cron: "*/5 * * * *" # setiap 5 menit
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Update timestamp
+        run: |
+          TIMESTAMP=$(date +%s)
+          sed -i "s|now-playing.svg?ts=.*|now-playing.svg?ts=${TIMESTAMP}|g" README.md
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "abyn365"
+          git config --global user.email "abyn@users.noreply.github.com"
+          git add README.md
+          git commit -m "🔄 Refresh Spotify badge" || echo "No changes to commit"
+          git push
