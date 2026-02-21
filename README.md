@@ -2,7 +2,6 @@
 
 ### A passionate NextJS/Typescript developer
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=abyn365&label=Profile views&color=0e75b6&style=flat" alt="abyn365" /> </p>
 
 - 🌐 My website: **[https://abyn.xyz](https://abyn.xyz)**
 
