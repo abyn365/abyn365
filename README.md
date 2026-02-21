@@ -62,6 +62,7 @@
 🕒 Last Updated: 2026-02-21 21:27 UTC
 
 <!-- GITHUB_METRICS_END -->
+![Stats](./profile/stats.svg&theme=transparent)
 
 <p>
   <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=abyn365&" alt="abyn365" />
