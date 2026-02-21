@@ -1,8 +1,7 @@
 # [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&pause=1000&color=1DB954&width=435&lines=Hi+%F0%9F%91%8B%2C+I'm+abyn;https%3A%2F%2Fabyn.xyz)](https://git.io/typing-svg)
 
 ### A passionate NextJS/Typescript developer
-<p align="left"> <img src="https://komarev.com/?username=abyn365&label=Profile views&color=0e75b6&style=flat" alt="abyn365" /> </p>
-
+![](https://komarev.com/ghpvc/?username=abyn365)
 - 📫 How to reach me **abyn@abyn.xyz**
 - ⚡ Fun fact **: meow**
 - 🌐 My site: **[https://abyn.xyz](https://abyn.xyz)**
