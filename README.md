@@ -12,7 +12,6 @@ A passionate **Next.js & TypeScript developer** focused on building scalable, mo
 
 ![](https://komarev.com/ghpvc/?username=abyn365)
 
----
 
 ## 🛠️ Tech Stack
 
@@ -40,18 +39,16 @@ A passionate **Next.js & TypeScript developer** focused on building scalable, mo
 </a>
 </p>
 
----
 
 ## 📊 GitHub Metrics
 
-🕒 Last Updated: 2026-02-21 22:25 UTC
+🕒 Last Updated: 2026-02-21 22:23 UTC
 
 <p align="center">
   <img src="./profile/stats.svg" width="49%" />
   <img src="https://streak-stats.demolab.com?user=abyn365&theme=transparent&hide_border=true" width="49%" />
 </p>
 
----
 
 ## 🎧 Currently Listening
 
