@@ -1,5 +1,4 @@
-# [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&pause=1000&color=1DB954&width=435&lines=Hi+%F0%9F%91%8B%2C+I'm+abyn)](https://git.io/typing-svg)
-
+# [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&pause=1000&color=1DB954&width=435&lines=Hi+%F0%9F%91%8B%2C+I'm+abyn;%F0%9F%8C%90+https%3A%2F%2Fabyn.xyz)](https://git.io/typing-svg)
 ### A passionate NextJS/Typescript developer
 
 
