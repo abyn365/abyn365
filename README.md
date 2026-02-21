@@ -58,7 +58,4 @@
 
 <!-- GITHUB_METRICS_END -->
 ![Stats](./profile/stats.svg)
-
-<p>
-  [![GitHub Streak](https://streak-stats.demolab.com?user=abyn365&theme=transparent&hide_border=true)](https://git.io/streak-stats)
-</p>
+[![GitHub Streak](https://streak-stats.demolab.com?user=abyn365&theme=transparent&hide_border=true)](https://git.io/streak-stats)>
