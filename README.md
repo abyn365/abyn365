@@ -56,6 +56,7 @@
 
 🕒 Last Updated: 2026-02-21 22:12 UTC
 
-<!-- GITHUB_METRICS_END -->
-![Stats](./profile/stats.svg)
-[![GitHub Streak](https://streak-stats.demolab.com?user=abyn365&theme=transparent&hide_border=true)](https://git.io/streak-stats)>
+<p align="center">
+  <img src="./profile/stats.svg" width="49%" />
+  <img src="https://streak-stats.demolab.com?user=abyn365&theme=transparent&hide_border=true" width="49%" />
+</p>
