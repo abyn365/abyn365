@@ -3,7 +3,7 @@
 ### A passionate NextJS/Typescript developer
 ![](https://komarev.com/ghpvc/?username=abyn365)
 - 📫 How to reach me **abyn@abyn.xyz**
-- ⚡ Fun fact **: meow**
+- ⚡ Fun fact: **meow**
 - 🌐 My site: **[https://abyn.xyz](https://abyn.xyz)**
 
 
