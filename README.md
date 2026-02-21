@@ -60,5 +60,5 @@
 ![Stats](./profile/stats.svg)
 
 <p>
-  <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=abyn365&" alt="abyn365" />
+  [![GitHub Streak](https://streak-stats.demolab.com?user=abyn365&theme=transparent&hide_border=true)](https://git.io/streak-stats)
 </p>
