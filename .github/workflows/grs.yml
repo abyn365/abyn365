@@ -1,6 +1,9 @@
 name: Update README Metrics & Cards
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: "45 * * * *" # setiap jam menit ke-45
   workflow_dispatch:
