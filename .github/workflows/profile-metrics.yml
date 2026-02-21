@@ -1,0 +1,62 @@
+name: profile-live-metrics
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "45  * * * *" 
+
+jobs:
+  update_metrics:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Fetch GitHub Data
+        run: |
+          USER="abyn365"
+
+          # Get user data
+          USER_DATA=$(curl -s https://api.github.com/users/$USER)
+
+          FOLLOWERS=$(echo $USER_DATA | jq .followers)
+          PUBLIC_REPOS=$(echo $USER_DATA | jq .public_repos)
+
+          # Calculate total stars across public repos
+          REPOS=$(curl -s https://api.github.com/users/$USER/repos?per_page=100)
+          TOTAL_STARS=$(echo $REPOS | jq '[.[].stargazers_count] | add')
+
+          # Current UTC time
+          NOW=$(date -u '+%Y-%m-%d %H:%M UTC')
+
+          # Replace section in README
+          awk '
+          /<!-- GITHUB_METRICS_START -->/ {
+            print;
+            print "";
+            print "👥 Followers: '"$FOLLOWERS"'";
+            print "📦 Public Repositories: '"$PUBLIC_REPOS"'";
+            print "⭐ Total Stars Earned: '"$TOTAL_STARS"'";
+            print "🕒 Last Updated: '"$NOW"'";
+            print "";
+            skip=1;
+            next
+          }
+          /<!-- GITHUB_METRICS_END -->/ {
+            skip=0
+          }
+          !skip { print }
+          ' README.md > README.tmp && mv README.tmp README.md
+
+      - name: Commit changes
+        run: |
+          git config --local user.name "abyn365"
+          git config --local user.email "abyn@abyn.xyz"
+          git add README.md
+          git commit -m "feat(profile-metrics): auto-update live GitHub statistics" || echo "No changes"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
