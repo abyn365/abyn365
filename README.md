@@ -10,7 +10,7 @@
 ### 🎧 What I'm Playing on Spotify
 
 <p align="left">
-  ![Alt text](https://spotify-recently-played-readme.vercel.app/api?user=31nytpd33uqzjhemiwj4cd2o3x5u&count={count=1})
+  ![abyn](https://spotify-recently-played-readme.vercel.app/api?user=31nytpd33uqzjhemiwj4cd2o3x5u&count=1)
 </p>
 
 
