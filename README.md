@@ -50,6 +50,13 @@
 </a>
 </p>
 
+---
+
+## 📊 Live GitHub Metrics
+
+<!-- GITHUB_METRICS_START -->
+Loading metrics...
+<!-- GITHUB_METRICS_END -->
 
 <p>
   <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=abyn365&" alt="abyn365" />
