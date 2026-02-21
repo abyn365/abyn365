@@ -6,7 +6,6 @@
 - ⚡ Fun fact **: meow**
 - 🌐 My site: **[https://abyn.xyz](https://abyn.xyz)**
 
----
 
 ### 🎧 What I'm Playing on Spotify
 
@@ -14,7 +13,6 @@
   <img src="https://spotify-abyn.vercel.app/api/now-playing.svg" width="540" height="52" prefers-color-scheme="dark" />
 </p>
 
----
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
@@ -26,7 +24,6 @@
 </a>
 </p>
 
----
 
 <h3 align="left">Languages and Tools:</h3>
 <p align="left">
@@ -53,7 +50,6 @@
 </a>
 </p>
 
----
 
 <p>
   <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=abyn365&" alt="abyn365" />
