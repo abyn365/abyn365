@@ -55,7 +55,12 @@
 ## 📊 Live GitHub Metrics
 
 <!-- GITHUB_METRICS_START -->
-Loading metrics...
+
+👥 Followers: 0
+📦 Public Repositories: 5
+⭐ Total Stars Earned: 5
+🕒 Last Updated: 2026-02-21 21:27 UTC
+
 <!-- GITHUB_METRICS_END -->
 
 <p>
