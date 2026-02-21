@@ -13,38 +13,29 @@ jobs:
       contents: write
 
     steps:
+      # =========================
+      # 1️⃣ Checkout
+      # =========================
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.PAT_TOKEN }}
 
       # =========================
-      # 1️⃣ Update Last Updated Section
+      # 2️⃣ Update Last Updated Line
       # =========================
-      - name: Update Last Updated Section
+      - name: Update Last Updated
         run: |
-          USER="abyn365"
           NOW=$(date -u '+%Y-%m-%d %H:%M UTC')
 
-          awk '
-          /<!-- GITHUB_METRICS_START -->/ {
-            print "<!-- GITHUB_METRICS_START -->"
-            print "🕒 Last Updated: '"$NOW"'"
-            print ""
-            skip=1;
-            next
-          }
-          /<!-- GITHUB_METRICS_END -->/ {
-            print "<!-- GITHUB_METRICS_END -->"
-            skip=0
-            next
-          }
-          !skip { print }
-          ' README.md > README.tmp && mv README.tmp README.md
+          # Kalau belum ada baris Last Updated, tambahkan
+          if ! grep -q "🕒 Last Updated:" README.md; then
+            echo -e "\n## 📊 Live GitHub Metrics\n\n🕒 Last Updated: $NOW\n" >> README.md
+          else
+            # Replace existing line
+            sed -i "s/🕒 Last Updated:.*/🕒 Last Updated: $NOW/" README.md
+          fi
 
       # =========================
-      # 2️⃣ Generate GitHub Stats Card
+      # 3️⃣ Generate GitHub Stats Card
       # =========================
       - name: Generate stats card
         uses: readme-tools/github-readme-stats-action@v1
@@ -52,15 +43,15 @@ jobs:
           card: stats
           options: username=${{ github.repository_owner }}&show_icons=true&theme=transparent&hide_border=true
           path: profile/stats.svg
-          token: ${{ secrets.PAT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # =========================
-      # 3️⃣ Commit & Push
+      # 4️⃣ Commit & Push
       # =========================
       - name: Commit changes
         run: |
-          git config user.name "abyn365"
-          git config user.email "abyn@abyn.xyz"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add README.md profile/*.svg
           git commit -m "chore(readme): auto-update metrics & stats card" || exit 0
