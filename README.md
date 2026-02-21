@@ -10,7 +10,7 @@
 ### 🎧 What I'm Playing on Spotify
 
 <p align="left">
-  <img src="https://spotify-abyn.vercel.app/api/now-playing.svg" width="540" height="52" prefers-color-scheme="dark" />
+  <img src="https://spotify-abyn.vercel.app/api/now-playing" width="540" height="52" prefers-color-scheme="dark" />
 </p>
 
 
