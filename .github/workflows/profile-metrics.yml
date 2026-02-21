@@ -19,28 +19,12 @@ jobs:
       - name: Fetch GitHub Data
         run: |
           USER="abyn365"
-
-          # Get user data
-          USER_DATA=$(curl -s https://api.github.com/users/$USER)
-
-          FOLLOWERS=$(echo $USER_DATA | jq .followers)
-          PUBLIC_REPOS=$(echo $USER_DATA | jq .public_repos)
-
-          # Calculate total stars across public repos
-          REPOS=$(curl -s https://api.github.com/users/$USER/repos?per_page=100)
-          TOTAL_STARS=$(echo $REPOS | jq '[.[].stargazers_count] | add')
-
           # Current UTC time
           NOW=$(date -u '+%Y-%m-%d %H:%M UTC')
 
           # Replace section in README
           awk '
           /<!-- GITHUB_METRICS_START -->/ {
-            print;
-            print "";
-            print "👥 Followers: '"$FOLLOWERS"'";
-            print "📦 Public Repositories: '"$PUBLIC_REPOS"'";
-            print "⭐ Total Stars Earned: '"$TOTAL_STARS"'";
             print "🕒 Last Updated: '"$NOW"'";
             print "";
             skip=1;
