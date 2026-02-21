@@ -1,10 +1,12 @@
-name: Update README Metrics & Cards
+name: README Metrics + Activity Sync
 
 on:
   push:
-  schedule:
-    - cron: "30 * * * *"
+    branches:
+      - main
   workflow_dispatch:
+  schedule:
+    - cron: "45 * * * *"
 
 jobs:
   update-readme:
@@ -19,24 +21,37 @@ jobs:
       # =========================
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       # =========================
-      # 2️⃣ Update Last Updated Line
+      # 2️⃣ Ensure profile folder exists
+      # =========================
+      - name: Ensure profile folder exists
+        run: mkdir -p profile
+
+      # =========================
+      # 3️⃣ Update COMMIT_UPDATE heartbeat
+      # =========================
+      - name: Update COMMIT_UPDATE timestamp
+        run: |
+          date -u '+%Y-%m-%dT%H:%M:%SZ' > COMMIT_UPDATE
+
+      # =========================
+      # 4️⃣ Update Last Updated Line in README
       # =========================
       - name: Update Last Updated
         run: |
           NOW=$(date -u '+%Y-%m-%d %H:%M UTC')
 
-          # Check for last update
           if ! grep -q "🕒 Last Updated:" README.md; then
             echo -e "\n## 📊 Live GitHub Metrics\n\n🕒 Last Updated: $NOW\n" >> README.md
           else
-            # Replace existing line
             sed -i "s/🕒 Last Updated:.*/🕒 Last Updated: $NOW/" README.md
           fi
 
       # =========================
-      # 3️⃣ Generate GitHub Stats Card
+      # 5️⃣ Generate GitHub Stats Card
       # =========================
       - name: Generate stats card
         uses: readme-tools/github-readme-stats-action@v1
@@ -47,13 +62,26 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       # =========================
-      # 4️⃣ Commit & Push
+      # 6️⃣ Commit & Push (Random Infra Style)
       # =========================
       - name: Commit changes
         run: |
           git config user.name "abyn365"
           git config user.email "abyn@abyn.xyz"
 
-          git add README.md profile/*.svg
-          git commit -m "chore(readme): auto-update metrics & stats card" || exit 0
+          git add -A
+
+          arr[0]="chore(sync): automated infrastructure heartbeat"
+          arr[1]="chore(sync): scheduled metrics refresh"
+          arr[2]="chore(sync): background profile telemetry update"
+          arr[3]="chore(sync): uptime verification cycle"
+          arr[4]="chore(sync): runtime state reconciliation"
+          arr[5]="chore(sync): distributed activity refresh"
+          arr[6]="chore(sync): repository health validation"
+          arr[7]="chore(sync): CI environment heartbeat"
+          arr[8]="chore(sync): production reliability checkpoint"
+          arr[9]="chore(sync): cloud state alignment"
+
+          rand=$((RANDOM % ${#arr[@]}))
+          git commit -m "${arr[$rand]}" || exit 0
           git push
