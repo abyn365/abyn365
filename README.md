@@ -54,12 +54,7 @@
 
 ## 📊 Live GitHub Metrics
 
-<!-- GITHUB_METRICS_START -->
-
-👥 Followers: 0
-📦 Public Repositories: 5
-⭐ Total Stars Earned: 5
-🕒 Last Updated: 2026-02-21 21:27 UTC
+🕒 Last Updated: 2026-02-21 21:50 UTC
 
 <!-- GITHUB_METRICS_END -->
 ![Stats](./profile/stats.svg)
