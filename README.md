@@ -7,12 +7,10 @@
 - 🌐 My site: **[https://abyn.xyz](https://abyn.xyz)**
 
 
-### 🎧 What I'm Playing on Spotify
+### ### 🎧 My Recently Played on Spotify
 
 <p align="left">
-  <img src="https://spotify-abyn.vercel.app/api/now-playing.svg"
-	width="540"
-	height="52" />
+  <img src="https://spotify-recently-played-readme.vercel.app/api?user=31nytpd33uqzjhemiwj4cd2o3x5u&count=3" />
 </p>
 
 
