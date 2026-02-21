@@ -10,7 +10,7 @@
 ### 🎧 My Recently Played on Spotify
 
 <p align="left">
-  <img src="https://spotify-recently-played-readme.vercel.app/api?user=31nytpd33uqzjhemiwj4cd2o3x5u&count=3" />
+  <img src="https://spotify-recently-played-readme.vercel.app/api?user=31nytpd33uqzjhemiwj4cd2o3x5u&count=1" />
 </p>
 
 
