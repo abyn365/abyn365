@@ -1,4 +1,4 @@
-timestamp : 2026-02-22T17:02:13Z
-trigger   : manual (workflow_dispatch)
-run count : #1240
-message   : chore(readme): regenerate profile stats
+timestamp : 2026-02-22T17:16:08Z
+trigger   : schedule (cron)
+run count : #1241
+message   : chore(readme): update readme & stats card
