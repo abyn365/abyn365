@@ -1,4 +1,4 @@
-timestamp : 2026-02-22T03:18:51Z
-trigger   : push
-run count : #583
-message   : chore(readme): periodic metrics refresh
+timestamp : 2026-02-22T03:19:14Z
+trigger   : schedule (cron)
+run count : #584
+message   : chore(readme): auto-update profile stats
