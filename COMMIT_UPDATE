@@ -1,4 +1,4 @@
-timestamp : 2026-02-22T07:51:45Z
-trigger   : schedule (cron)
-run count : #1223
-message   : chore(readme): regenerate profile stats
+timestamp : 2026-02-22T08:35:16Z
+trigger   : manual (workflow_dispatch)
+run count : #1224
+message   : chore(readme): sync latest github stats
