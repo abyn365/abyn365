@@ -1,5 +1,4 @@
 name: Active & Update README
-
 on:
   push:
     branches:
@@ -7,13 +6,11 @@ on:
   schedule:
     - cron: "30 * * * *"
   workflow_dispatch:
-
 jobs:
   auto_commit_and_update:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
     steps:
       # =========================
       # 1️⃣ Checkout
@@ -25,12 +22,58 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
 
       # =========================
-      # 2️⃣ Update COMMIT_UPDATE timestamp
+      # 2️⃣ Update COMMIT_UPDATE
       # =========================
-      - name: Update COMMIT_UPDATE timestamp
+      - name: Update COMMIT_UPDATE
         run: |
-          d=$(date '+%Y-%m-%dT%H:%M:%SZ')
-          echo $d > COMMIT_UPDATE
+          # Timestamp
+          TIMESTAMP=$(date '+%Y-%m-%dT%H:%M:%SZ')
+
+          # Trigger info
+          EVENT="${{ github.event_name }}"
+          if [ "$EVENT" = "schedule" ]; then
+            TRIGGER="schedule (cron)"
+          elif [ "$EVENT" = "workflow_dispatch" ]; then
+            TRIGGER="manual (workflow_dispatch)"
+          else
+            TRIGGER="push"
+          fi
+
+          # Run counter
+          COUNT_FILE=".run_count"
+          if [ -f "$COUNT_FILE" ]; then
+            COUNT=$(cat "$COUNT_FILE")
+            COUNT=$((COUNT + 1))
+          else
+            COUNT=1
+          fi
+          echo $COUNT > "$COUNT_FILE"
+
+          # Commit message pool (same as below)
+          arr[0]="chore(readme): refresh live metrics"
+          arr[1]="chore(readme): auto-update profile stats"
+          arr[2]="chore(readme): scheduled readme update"
+          arr[3]="chore(readme): sync latest github stats"
+          arr[4]="chore(readme): update stats card & timestamp"
+          arr[5]="chore(readme): periodic metrics refresh"
+          arr[6]="chore(readme): regenerate profile stats"
+          arr[7]="chore(readme): readme metrics auto-sync"
+          arr[8]="chore(readme): update readme & stats card"
+          arr[9]="chore(readme): live profile data refresh"
+          rand=$((RANDOM % ${#arr[@]}))
+          CHOSEN_MSG="${arr[$rand]}"
+
+          # Write COMMIT_UPDATE
+          cat > COMMIT_UPDATE <<EOF
+          timestamp : $TIMESTAMP
+          trigger   : $TRIGGER
+          run count : #$COUNT
+          message   : $CHOSEN_MSG
+          EOF
+
+          # Export untuk dipakai step berikutnya
+          echo "CHOSEN_MSG=$CHOSEN_MSG" >> $GITHUB_ENV
+          echo "COUNT=$COUNT" >> $GITHUB_ENV
 
       # =========================
       # 3️⃣ Update Last Updated in README
@@ -56,27 +99,14 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       # =========================
-      # 5️⃣ Commit & Push (random message + readme update)
+      # 5️⃣ Commit & Push
       # =========================
       - name: Commit & Push all changes
         run: |
           git config --local user.name "abyn365"
           git config --local user.email "abyn@abyn.xyz"
           git add -A
-
-          arr[0]="chore(readme): refresh live metrics"
-          arr[1]="chore(readme): auto-update profile stats"
-          arr[2]="chore(readme): scheduled readme update"
-          arr[3]="chore(readme): sync latest github stats"
-          arr[4]="chore(readme): update stats card & timestamp"
-          arr[5]="chore(readme): periodic metrics refresh"
-          arr[6]="chore(readme): regenerate profile stats"
-          arr[7]="chore(readme): readme metrics auto-sync"
-          arr[8]="chore(readme): update readme & stats card"
-          arr[9]="chore(readme): live profile data refresh"
-          
-          rand=$((RANDOM % ${#arr[@]}))
-          git commit -m "${arr[$rand]}" || echo "No changes to commit"
+          git commit -m "${{ env.CHOSEN_MSG }}" || echo "No changes to commit"
 
       - name: GitHub Push
         uses: ad-m/github-push-action@master
