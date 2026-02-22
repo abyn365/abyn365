@@ -1,4 +1,4 @@
-timestamp : 2026-02-22T00:45:03Z
+timestamp : 2026-02-22T00:45:22Z
 trigger   : push
-run count : #99
-message   : chore(readme): scheduled readme update
+run count : #100
+message   : chore(readme): live profile data refresh
