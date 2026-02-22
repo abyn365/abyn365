@@ -1,4 +1,4 @@
-timestamp : 2026-02-22T05:57:30Z
+timestamp : 2026-02-22T05:57:48Z
 trigger   : push
-run count : #1075
-message   : chore(readme): live profile data refresh
+run count : #1076
+message   : chore(readme): update readme & stats card
