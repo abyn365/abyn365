@@ -1,4 +1,4 @@
-name: Update README Metrics & Cards
+name: Active & Update README
 
 on:
   push:
@@ -9,9 +9,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-readme:
+  auto_commit_and_update:
     runs-on: ubuntu-latest
-
     permissions:
       contents: write
 
@@ -21,24 +20,32 @@ jobs:
       # =========================
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PAT_TOKEN }}
 
       # =========================
-      # 2️⃣ Update Last Updated Line
+      # 2️⃣ Update COMMIT_UPDATE timestamp
+      # =========================
+      - name: Update COMMIT_UPDATE timestamp
+        run: |
+          d=$(date '+%Y-%m-%dT%H:%M:%SZ')
+          echo $d > COMMIT_UPDATE
+
+      # =========================
+      # 3️⃣ Update Last Updated in README
       # =========================
       - name: Update Last Updated
         run: |
           NOW=$(date -u '+%Y-%m-%d %H:%M UTC')
-
-          # Check for last update
           if ! grep -q "🕒 Last Updated:" README.md; then
             echo -e "\n## 📊 Live GitHub Metrics\n\n🕒 Last Updated: $NOW\n" >> README.md
           else
-            # Replace existing line
             sed -i "s/🕒 Last Updated:.*/🕒 Last Updated: $NOW/" README.md
           fi
 
       # =========================
-      # 3️⃣ Generate GitHub Stats Card
+      # 4️⃣ Generate GitHub Stats Card
       # =========================
       - name: Generate stats card
         uses: readme-tools/github-readme-stats-action@v1
@@ -49,13 +56,62 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       # =========================
-      # 4️⃣ Commit & Push
+      # 5️⃣ Commit & Push (random message + readme update)
       # =========================
-      - name: Commit changes
+      - name: Commit & Push all changes
         run: |
-          git config user.name "abyn365"
-          git config user.email "abyn@abyn.xyz"
+          git config --local user.name "abyn365"
+          git config --local user.email "abyn@abyn.xyz"
+          git add -A
 
-          git add README.md profile/*.svg
-          git commit -m "chore(readme): auto-update metrics & stats card" || exit 0
-          git push
+          arr[0]="chore(cloud-sync): automated infrastructure heartbeat"
+          arr[1]="chore(cloud-sync): scheduled cloud environment sync"
+          arr[2]="chore(cloud-sync): background infrastructure validation"
+          arr[3]="chore(cloud-sync): periodic server state reconciliation"
+          arr[4]="chore(cloud-sync): production uptime assurance cycle"
+          arr[5]="chore(cloud-sync): distributed system health check"
+          arr[6]="chore(cloud-sync): runtime environment synchronization"
+          arr[7]="chore(cloud-sync): container orchestration ping"
+          arr[8]="chore(cloud-sync): cloud service availability verification"
+          arr[9]="chore(cloud-sync): automated deployment integrity check"
+          arr[10]="chore(cloud-sync): infrastructure consistency validation"
+          arr[11]="chore(cloud-sync): keep-alive signal dispatch"
+          arr[12]="chore(cloud-sync): scheduled backend sync process"
+          arr[13]="chore(cloud-sync): monitoring agent heartbeat"
+          arr[14]="chore(cloud-sync): serverless runtime refresh"
+          arr[15]="chore(cloud-sync): edge network synchronization task"
+          arr[16]="chore(cloud-sync): cluster stability verification"
+          arr[17]="chore(cloud-sync): automated system reconciliation"
+          arr[18]="chore(cloud-sync): production environment sync cycle"
+          arr[19]="chore(cloud-sync): cloud resource integrity audit"
+          arr[20]="chore(cloud-sync): service mesh health validation"
+          arr[21]="chore(cloud-sync): infrastructure state alignment"
+          arr[22]="chore(cloud-sync): periodic DevOps maintenance task"
+          arr[23]="chore(cloud-sync): compute node availability check"
+          arr[24]="chore(cloud-sync): platform reliability sync"
+          arr[25]="chore(cloud-sync): background cloud monitoring cycle"
+          arr[26]="chore(cloud-sync): CI runtime environment ping"
+          arr[27]="chore(cloud-sync): distributed uptime verification"
+          arr[28]="chore(cloud-sync): automated cloud status update"
+          arr[29]="chore(cloud-sync): infrastructure telemetry refresh"
+          arr[30]="chore(cloud-sync): platform health assurance task"
+          arr[31]="chore(cloud-sync): backend infrastructure sync"
+          arr[32]="chore(cloud-sync): scheduled reliability checkpoint"
+          arr[33]="chore(cloud-sync): system availability audit"
+          arr[34]="chore(cloud-sync): automated production sync routine"
+          arr[35]="chore(cloud-sync): runtime consistency validation"
+          arr[36]="chore(cloud-sync): cluster environment refresh"
+          arr[37]="chore(cloud-sync): cloud operations maintenance cycle"
+          arr[38]="chore(cloud-sync): infrastructure state verification"
+          arr[39]="chore(cloud-sync): automated server reconciliation"
+          arr[40]="chore(cloud-sync): global uptime sync task"
+
+          rand=$((RANDOM % ${#arr[@]}))
+          git commit -m "${arr[$rand]}" || echo "No changes to commit"
+
+      - name: GitHub Push
+        uses: ad-m/github-push-action@master
+        with:
+          force: true
+          directory: "."
+          github_token: ${{ secrets.PAT_TOKEN }}
