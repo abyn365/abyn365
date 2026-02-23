@@ -1,4 +1,4 @@
-timestamp : 2026-02-23T19:49:55Z
+timestamp : 2026-02-23T20:32:27Z
 trigger   : schedule (cron)
-run count : #1272
-message   : chore(readme): update stats card & timestamp
+run count : #1273
+message   : chore(readme): readme metrics auto-sync
