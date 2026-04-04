@@ -1,4 +1,4 @@
-timestamp : 2026-04-04T10:32:16Z
+timestamp : 2026-04-04T11:19:01Z
 trigger   : schedule (cron)
-run count : #2361
-message   : chore(readme): periodic metrics refresh
+run count : #2362
+message   : chore(readme): readme metrics auto-sync
