@@ -1,4 +1,4 @@
-timestamp : 2026-05-21T16:31:56Z
+timestamp : 2026-05-21T18:50:01Z
 trigger   : schedule (cron)
-run count : #3155
-message   : chore(readme): regenerate profile stats
+run count : #3156
+message   : chore(readme): update readme & stats card
