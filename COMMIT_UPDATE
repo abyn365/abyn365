@@ -1,4 +1,4 @@
-timestamp : 2026-06-29T16:14:45Z
+timestamp : 2026-06-29T18:27:37Z
 trigger   : schedule (cron)
-run count : #3540
-message   : chore(readme): update stats card & timestamp
+run count : #3541
+message   : chore(readme): live profile data refresh
