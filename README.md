@@ -53,9 +53,7 @@ A passionate **Next.js & TypeScript developer** focused on building scalable, mo
 
 Here’s what I’ve been playing recently on Spotify:
 
-<p align="left">
-  <img src="https://spotify-recently-played-readme.vercel.app/api?user=31nytpd33uqzjhemiwj4cd2o3x5u&count=1" />
-</p>
+[![Spotify recently played](https://spotify-recently-played.jeffreyca.workers.dev/svg?user=31nytpd33uqzjhemiwj4cd2o3x5u&theme=transparent)](https://open.spotify.com/user/31nytpd33uqzjhemiwj4cd2o3x5u)
 
 
 ## 🤝 Connect With Me
